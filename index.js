@@ -1,14 +1,10 @@
-const commandLineArgs = require('command-line-args');
-const optionDefinitions = [
-  { name: 'tokenContractOwnerPrivateKey', type: String },
-  { name: 'tokenContractOwnerAddress', type: String },
-  { name: 'tokenContractAddress', type: String }
-];
-const options = commandLineArgs(optionDefinitions);
+const env = require('dotenv').config()
 
-const TOKEN_CONTRACT_OWNER_PRIVATE_KEY = options.tokenContractOwnerPrivateKey;
-const TOKEN_CONTRACT_OWNER_ADDRESS = options.tokenContractOwnerAddress;
-const TOKEN_CONTRACT_ADDRESS = options.tokenContractAddress;
+const {
+  TOKEN_CONTRACT_OWNER_PRIVATE_KEY,
+  TOKEN_CONTRACT_OWNER_ADDRESS,
+  TOKEN_CONTRACT_ADDRESS
+} = process.env;
 
 const Web3 = require('web3');
 const contractJson = require('./contract.json');
